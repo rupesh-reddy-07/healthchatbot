@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color palette based on design brief for health platform */
+  --background: #ffffff; /* Primary background color */
+  --foreground: #4b5563; /* Primary text color */
+  --card: #f9fafb; /* Card background */
+  --card-foreground: #4b5563; /* Card text color */
+  --popover: #ffffff; /* Popover background */
+  --popover-foreground: #4b5563; /* Popover text color */
+  --primary: #0891b2; /* Primary action color - Cyan-600 */
+  --primary-foreground: #ffffff; /* Text on primary actions */
+  --secondary: #f97316; /* Accent color for highlights - Orange-600 */
+  --secondary-foreground: #ffffff; /* Text on secondary actions */
+  --muted: #f9fafb; /* Muted background areas */
+  --muted-foreground: #6b7280; /* Muted text color */
+  --accent: #f97316; /* Accent highlights */
+  --accent-foreground: #ffffff; /* Text on accent areas */
+  --destructive: #dc2626; /* Color for destructive actions */
+  --destructive-foreground: #ffffff; /* Text on destructive buttons */
+  --border: #e5e7eb; /* Border color for cards and containers */
+  --input: #ffffff; /* Input field background */
+  --ring: #0891b2; /* Focus ring color */
+  --chart-1: #1f2937; /* Dark color for chart elements */
+  --chart-2: #4b5563; /* Medium color for chart elements */
+  --chart-3: #f97316; /* Accent color for chart elements */
+  --chart-4: #0891b2; /* Primary color for chart elements */
+  --chart-5: #f9fafb; /* Light color for chart elements */
+  --radius: 0.75rem; /* Increased corner rounding for softer appearance */
+  --sidebar: #f9fafb; /* Sidebar background */
+  --sidebar-foreground: #4b5563; /* Sidebar text color */
+  --sidebar-primary: #0891b2; /* Primary color in sidebar */
+  --sidebar-primary-foreground: #ffffff; /* Text on primary sidebar actions */
+  --sidebar-accent: #f97316; /* Accent color in sidebar */
+  --sidebar-accent-foreground: #ffffff; /* Text on sidebar accents */
+  --sidebar-border: #e5e7eb; /* Sidebar border color */
+  --sidebar-ring: #0891b2; /* Focus ring for sidebar elements */
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #0891b2;
+  --primary-foreground: #ffffff;
+  --secondary: #f97316;
+  --secondary-foreground: #ffffff;
+  --muted: #334155;
+  --muted-foreground: #94a3b8;
+  --accent: #f97316;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: #0891b2;
+  --chart-1: #f1f5f9;
+  --chart-2: #94a3b8;
+  --chart-3: #f97316;
+  --chart-4: #0891b2;
+  --chart-5: #334155;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #0891b2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f97316;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: #0891b2;
+}
+
+@theme inline {
+  /* Updated font configuration to match layout.tsx */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans leading-relaxed;
+  }
+}
+
+/* Added custom health-focused styling */
+@layer components {
+  .health-gradient {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .chat-bubble-user {
+    background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+    box-shadow: 0 4px 12px rgba(8, 145, 178, 0.15);
+  }
+
+  .chat-bubble-bot {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .chat-bubble-emergency {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 1px solid #fecaca;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.1);
+  }
+}
